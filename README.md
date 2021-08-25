@@ -1,2 +1,1 @@
-# echo
-App test
+# App test
