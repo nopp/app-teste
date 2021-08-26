@@ -10,6 +10,11 @@ func hello(w http.ResponseWriter, req *http.Request) {
     fmt.Fprintf(w, "hello\n")
 }
 
+func opa(w http.ResponseWriter, req *http.Request) {
+
+    fmt.Fprintf(w, "oooppaaaaa\n")
+}
+
 func headers(w http.ResponseWriter, req *http.Request) {
 
     for name, headers := range req.Header {
@@ -23,6 +28,7 @@ func main() {
 
     http.HandleFunc("/hello", hello)
     http.HandleFunc("/headers", headers)
+    http.HandleFunc("/opa", opa)
 
     http.ListenAndServe(":8090", nil)
 }
