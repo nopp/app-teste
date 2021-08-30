@@ -1,9 +1,6 @@
-FROM golang:1.13.10 AS builder
+FROM golang:1.14
 COPY . .
 RUN unset GOPATH \
-    && CGO_ENABLED=0 GOOS=linux go build -a -installsuffix cgo -o main .
+    && go build -o main .
 
-FROM golang:1.13.10
-LABEL maintainer="Carlos Augusto Malucelli <camalucelli@gmail.com>"
-COPY --from=builder /go/main .
 ENTRYPOINT ["./main"]
