@@ -39,6 +39,6 @@ jobs:
       - name: Upload Sast-scan logs artifact
         uses: actions/upload-artifact@v2
         with:
-          name: Sast-scan output (Para desenvolvedores)
+          name: Sast-scan
           path: reports
         if: always()
