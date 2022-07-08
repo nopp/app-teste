@@ -13,9 +13,13 @@ jobs:
       steps:
       - uses: actions/checkout@v3
       - run: |-
-          python3 -m pip install ansi2html        
-          semgrep scan --config auto > opa
-          cat opa
-          cat opa | ansi2html > semgrep.html
-          ls -ltr
-          cat semgrep.html
+          python3 -m pip install ansi2html
+          mkdir output
+          semgrep scan --config auto > output/opa
+          cat output/opa | ansi2html > output/semgrep.html
+          rm -rf output/opa
+      - name: Upload-artifact
+        uses: actions/upload-artifact@v2
+        with: 
+          name: semgrep-result
+          path: output
