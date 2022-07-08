@@ -7,7 +7,7 @@ import (
 
 func hello(w http.ResponseWriter, req *http.Request) {
 
-    fmt.Fprintf(w, "hello\n")
+    fmt.Fprintf(w, "hello 123\n")
 }
 
 func opa(w http.ResponseWriter, req *http.Request) {
