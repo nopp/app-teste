@@ -36,7 +36,7 @@ jobs:
         WITH_V: true
         DRY_RUN: false
         VERBOSE: false
-        GITHUB_TOKEN: ${{ env.TOKEN }}
+        GITHUB_TOKEN: ${{ secrets.TOKEN }}
         PRERELEASE_SUFFIX: rc
         RELEASE_BRANCHES: master,main
     - run: echo ${{ steps.version.outputs.new_tag }}
