@@ -6,7 +6,7 @@ on:
 
 jobs:
 
-  build:
+  Build-and-Test:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
@@ -21,7 +21,7 @@ jobs:
 
     - name: Test
       run: go test -v ./...
-  bimp:
+  Bump-Version:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
