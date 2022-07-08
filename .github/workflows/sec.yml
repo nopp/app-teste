@@ -1,4 +1,4 @@
-name: Sex
+name: Sec
 
 on:
   push:
@@ -16,3 +16,4 @@ jobs:
           python3 -m pip install ansi2html        
           semgrep scan --config auto > opa 
           cat opa | ansi2html > semgrep.html
+          ls -ltr
