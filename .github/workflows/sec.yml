@@ -12,4 +12,6 @@ jobs:
         image: returntocorp/semgrep
       steps:
       - uses: actions/checkout@v3
-      - run: semgrep scan --config auto
+      - run: |-
+          python3 -m pip install ansi2html        
+          semgrep scan --config auto | ansi2html > semgrep.html
