@@ -5,7 +5,7 @@ on:
     branches: [ "main" ]
 
 jobs:
-  semgrep:
+  SemGrep:
       name: Scan
       runs-on: ubuntu-20.04
       container:
@@ -23,3 +23,22 @@ jobs:
         with: 
           name: semgrep-result
           path: output
+  ShiftLeft_SastScan:
+    name: ShiftLeft/Sast-scan
+    runs-on: ubuntu-latest
+    
+    container:
+      image: shiftleft/scan
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Run ShiftLeft Sast-scan
+        run: scan --no-error --local-only
+
+      - name: Upload Sast-scan logs artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: Sast-scan output (Para desenvolvedores)
+          path: reports
+        if: always()
