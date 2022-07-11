@@ -9,7 +9,7 @@ jobs:
       name: Scan
       runs-on: ubuntu-20.04
       container:
-        image: returntocorp/semgrep
+        image: shiftleft/scan
       steps:
         - name: Checkout Repository
           uses: actions/checkout@v3
