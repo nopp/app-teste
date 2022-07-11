@@ -49,3 +49,6 @@ jobs:
           ref: main
           token: ${{ secrets.TOKEN }}
           path: ./action-labs
+      - run: |
+          ls -ltr
+          pwd
