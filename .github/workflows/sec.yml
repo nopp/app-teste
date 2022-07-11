@@ -51,4 +51,5 @@ jobs:
           path: ./action-labs
       - run: |
           ls -ltr
+          ls -R action-labs/
           pwd
