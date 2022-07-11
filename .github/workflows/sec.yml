@@ -5,51 +5,22 @@ on:
     branches: [ "main" ]
 
 jobs:
-  SemGrep:
+  Sec:
       name: Scan
       runs-on: ubuntu-20.04
       container:
         image: returntocorp/semgrep
       steps:
-      - uses: actions/checkout@v3
-      - run: |-
-          python3 -m pip install ansi2html
-          mkdir output
-          semgrep scan --config auto > output/opa
-          cat output/opa | ansi2html > output/semgrep.html
-          rm -rf output/opa
-      - name: Upload-artifact
-        uses: actions/upload-artifact@v2
-        with: 
-          name: semgrep-result
-          path: output
-  ShiftLeft_SastScan:
-    name: ShiftLeft/Sast-scan
-    runs-on: ubuntu-latest
-    
-    container:
-      image: shiftleft/scan
-
-    steps:
-      - uses: actions/checkout@v3
-
-      - name: Run ShiftLeft Sast-scan
-        run: scan --no-error --local-only
-
-      - name: Upload Sast-scan logs artifact
-        uses: actions/upload-artifact@v2
-        with:
-          name: Sast-scan
-          path: reports
-        if: always()
-      - name: Checkout Repository
-        uses: actions/checkout@v3
-        with:
-          repository: nopp/action-labs
-          ref: main
-          token: ${{ secrets.TOKEN }}
-          path: ./action-labs
-      - run: |
-          ls -ltr
-          ls -R action-labs/
-          pwd
+        - name: Checkout Repository
+          uses: actions/checkout@v3
+          with:
+            repository: nopp/action-labs
+            ref: main
+            token: ${{ secrets.TOKEN }}
+            path: ./action-labs
+        - name: runs
+          run: |- 
+            ls -ltr
+            ls -ltr ./.github/
+        - name: Scans
+          uses: ./action-labs/workflows/
