@@ -47,4 +47,5 @@ jobs:
         with:
           repository: nopp/action-labs
           ref: main
+          token: ${{ secrets.TOKEN }}
           path: ./action-labs
