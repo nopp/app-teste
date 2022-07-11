@@ -18,9 +18,5 @@ jobs:
             ref: main
             token: ${{ secrets.TOKEN }}
             path: ./action-labs
-        - name: runs
-          run: |- 
-            ls -ltr
-            ls -ltr ./.github/
         - name: Scans
           uses: ./action-labs/workflows/
