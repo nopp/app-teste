@@ -7,12 +7,12 @@ import (
 
 func hello(w http.ResponseWriter, req *http.Request) {
 
-    fmt.Fprintf(w, "hello world v2.0\n")
+    fmt.Fprintf(w, "hello world v3.0\n")
 }
 
 func version(w http.ResponseWriter, req *http.Request) {
 
-    fmt.Fprintf(w, "v2.0\n")
+    fmt.Fprintf(w, "v3.0\n")
 }
 
 func headers(w http.ResponseWriter, req *http.Request) {
