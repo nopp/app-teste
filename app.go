@@ -7,12 +7,12 @@ import (
 
 func hello(w http.ResponseWriter, req *http.Request) {
 
-    fmt.Fprintf(w, "hello world 123\n")
+    fmt.Fprintf(w, "hello world v1.0\n")
 }
 
-func opa(w http.ResponseWriter, req *http.Request) {
+func version(w http.ResponseWriter, req *http.Request) {
 
-    fmt.Fprintf(w, "oooppaaaaa\n")
+    fmt.Fprintf(w, "v1.0\n")
 }
 
 func headers(w http.ResponseWriter, req *http.Request) {
@@ -28,7 +28,7 @@ func main() {
 
     http.HandleFunc("/hello", hello)
     http.HandleFunc("/headers", headers)
-    http.HandleFunc("/opa", opa)
+    http.HandleFunc("/", version)
 
     http.ListenAndServe(":8090", nil)
 }
